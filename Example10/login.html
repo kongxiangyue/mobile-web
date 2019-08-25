@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>登录</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <!-- <link rel="shortcut icon" href="images/ico.png"> -->
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery-2.1.1.js"></script>
+        <script src="layer/layer.js"></script>
+        <style type="text/css">
+            .layout{
+                width: 400px;
+                margin: 0 auto;
+                padding-top: 50px;
+            }
+            .layout label{
+                width: 100px;
+                text-align: center;
+                display: inline-block;
+                margin-bottom: 25px;
+            }
+            .layout input{
+                width: 250px;
+                margin-bottom: 25px;
+
+            }
+         /*   button{
+                width: 100px;
+            }*/
+        </style>
+</head>
+<body>
+<button class="login-btn">登录</button>
+<form class="layout" style="display:none;">
+    <label>用户名</label>
+    <input type="text" name=""><br>
+    <label>密码</label>
+    <input type="password" name=""  maxlength="11"><br>
+    <button class="btn btn-primary col-sm-5">登录</button>
+    <button type="reset" class="btn col-sm-offset-2 col-sm-5">重置</button>
+</form>
+</body>
+<script type="text/javascript">
+// 登录弹出层
+$(document).ready(function(){
+    $('.login-btn').click(function(){
+        layer.open({
+        type: 1,
+        // skin: 'layui-layer-lan',
+        title: '登录',
+        fix: false,
+        shadeClose: true,
+        maxmin: true,
+        area: ['600px', '300px'],
+        content: $(".layout")
+        });
+    });
+});
+</script>
+</html>

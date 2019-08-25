@@ -1,0 +1,32 @@
+ <!DOCTYPE html>
+ <html>
+ 	<head>
+ 		<meta charset="UTF-8">
+ 		<title></title>
+		<link rel="stylesheet" href="../css/jquery.mobile-1.4.5.min.css">
+ 		<script type="text/javascript" src="../js/jquery.js" ></script>
+ 		<script type="text/javascript" src="../js/jquery.mobile-1.4.5.min.js" ></script>
+		<script>
+			$.mobile.changePage( "../examples/firstview.html", { 
+             transition: "pop", 
+            });
+		</script>
+	</head>
+ 	<body>
+		<div data-role="page" id="firstpage">
+			<div data-role="header"><h2>header</h2></div>
+			<div data-role="content">
+				使用jQuery Mobile创建一个新页面
+				<a href="#secondpage">点击切换</a>
+		</div>
+ 			<div data-role="footer"><h2>footer</h2></div>
+ 		</div>
+ 		<div data-role="page" id="secondpage">
+ 			<div data-role="header"><h2>header</h2></div>
+ 			<div data-role="content">
+ 				使用jQuery Mobile创建另一个新页面
+ 			</div>
+			<div data-role="footer"><h2>footer</h2></div>
+ 		</div>
+ 	</body>
+ </html>

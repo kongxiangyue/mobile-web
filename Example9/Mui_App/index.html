@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="js/mui.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+    </script>
+    
+    <!--
+    	作者：offline
+    	时间：2017-05-19
+    	描述：图文表格样式
+    -->
+    <style>
+		h5{
+	        padding-top: 8px;
+	        padding-bottom: 8px;
+	        text-indent: 12px;
+	    }
+	    
+		.mui-table-view.mui-grid-view .mui-table-view-cell .mui-media-body{
+			font-size: 15px;
+			margin-top:8px;
+			color: #333;
+		}
+	</style>
+    
+    
+</head>
+<body>
+	<!--
+    	作者：offline
+    	时间：2017-05-19
+    	描述：头部说明：
+    -->
+	<header class="mui-bar mui-bar-nav">
+	    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+	    <h1 class="mui-title">沈阳快游</h1>
+	</header>
+	<div class="mui-content">
+	    <!--
+        	作者：offline
+        	时间：2017-05-19
+        	描述：图片轮播
+        -->
+      <div id="slider" class="mui-slider" >
+			<div class="mui-slider-group mui-slider-loop">
+				<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+				<div class="mui-slider-item mui-slider-item-duplicate">
+					<a href="tab-webview-main.html">
+						<img src="images/shenyang4.jpg">
+					</a>
+				</div>
+				<!-- 第一张 -->
+				<div class="mui-slider-item">
+					<a href="tab-webview-main.html">
+						<img src="images/shenyang1.jpg">
+					</a>
+				</div>
+				<!-- 第二张 -->
+				<div class="mui-slider-item">
+					<a href="tab-webview-main.html">
+						<img src="images/shenyang2.jpg">
+					</a>
+				</div>
+				<!-- 第三张 -->
+				<div class="mui-slider-item">
+					<a href="tab-webview-main.html">
+						<img src="images/shenyang3.jpg">
+					</a>
+				</div>
+				<!-- 第四张 -->
+				<div class="mui-slider-item">
+					<a href="tab-webview-main.html">
+						<img src="images/shenyang4.jpg">
+					</a>
+				</div>
+				<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+				<div class="mui-slider-item mui-slider-item-duplicate">
+					<a href="tab-webview-main.html">
+						<img src="images/shenyang1.jpg">
+					</a>
+				</div>
+			</div>
+			<div class="mui-slider-indicator">
+				<div class="mui-indicator mui-active"></div>
+				<div class="mui-indicator"></div>
+				<div class="mui-indicator"></div>
+				<div class="mui-indicator"></div>
+			</div>
+		<!--
+        	作者：offline
+        	时间：2017-05-19
+        	描述：图文表格
+        -->
+		<div class="mui-content" style="background-color:#fff">
+		    <h5 style="background-color:#efeff4">沈阳美景</h5>
+		    <ul class="mui-table-view mui-grid-view">
+		        <li class="mui-table-view-cell mui-media mui-col-xs-6">
+		            <a href="tab-webview-main.html">
+		                <img class="mui-media-object" src="images/shenyang5.jpg">
+		                <div class="mui-media-body">最美北塔</div></a></li>
+		        <li class="mui-table-view-cell mui-media mui-col-xs-6">
+		            <a href="tab-webview-main.html">
+		                <img class="mui-media-object" src="images/shenyang6.jpg">
+		                <div class="mui-media-body">沈阳老城就是美</div></a></li>
+		        <li class="mui-table-view-cell mui-media mui-col-xs-6">
+		            <a href="tab-webview-main.html"><img class="mui-media-object" src="images/shenyang7.jpg">
+		                <div class="mui-media-body">好美的冲浪-方特</div></a></li>
+		        <li class="mui-table-view-cell mui-media mui-col-xs-6">
+		            <a href="tab-webview-main.html">
+		                <img class="mui-media-object" src="images/shenyang8.jpg">
+		                <div class="mui-media-body">发现王国-好好好！</div></a></li>
+		    </ul>    
+		</div>
+		
+		
+	</div>
+	
+		
+</body>
+</html>

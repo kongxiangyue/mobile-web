@@ -1,0 +1,75 @@
+{
+	"index.html": {
+		"resources": [
+			"images/shenyang3.jpg",
+			"images/shenyang4.jpg",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"images/shenyang2.jpg",
+			"images/shenyang1.jpg",
+			"css/mui.min.css",
+			"images/shenyang7.jpg",
+			"images/shenyang5.jpg",
+			"images/shenyang6.jpg",
+			"images/shenyang8.jpg",
+			"Tab_bar/tab-webview-main.html",
+			"tab-webview-main.html"
+		],
+		"refer": [
+			"Tab_bar/tab-webview-main.html",
+			"tab-webview-main.html"
+		]
+	},
+	"Tab_bar/tab-webview-main.html": {
+		"resources": [
+			"Tab_bar/tab-webview-subpage-contact.html",
+			"Tab_bar/tab-webview-subpage-chat.html",
+			"Tab_bar/tab-webview-subpage-about.html",
+			"Tab_bar/tab-webview-subpage-setting.html"
+		],
+		"refer": [
+			"Tab_bar/tab-webview-subpage-contact.html",
+			"Tab_bar/tab-webview-subpage-chat.html",
+			"Tab_bar/tab-webview-subpage-about.html",
+			"Tab_bar/tab-webview-subpage-setting.html"
+		]
+	},
+	"Tab_bar/tab-webview-subpage-contact.html": {
+		"resources": [
+			"Tab_bar/tab-webview-main.html"
+		],
+		"refer": [
+			"Tab_bar/tab-webview-main.html"
+		]
+	},
+	"tab-webview-main.html": {
+		"resources": [
+			"tab-webview-subpage-about.html",
+			"index.html"
+		],
+		"refer": [
+			"tab-webview-subpage-about.html",
+			"tab-webview-subpage-chat.html",
+			"tab-webview-subpage-contact.html",
+			"tab-webview-subpage-setting.html",
+			"index.html"
+		]
+	},
+	"tab-webview-subpage-chat.html": {
+		"resources": [
+			"images/shenyang10.jpg",
+			"js/mui.min.js",
+			"css/mui.min.css"
+		]
+	},
+	"tab-webview-subpage-contact.html": {
+		"resources": [
+			"images/jiudian.jpg"
+		]
+	},
+	"tab-webview-subpage-setting.html": {
+		"resources": [
+			"images/gouwu.jpg"
+		]
+	}
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+ <html>
+<head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+      <title>Hello World</title>
+       <link rel="stylesheet" href="../css/jquery.mobile-1.4.5.min.css"/> 
+       <script src="../js/jquery.js"></script>
+      <script src="../js/jquery.mobile-1.4.5.min.js"></script>
+       <script>
+           $(document).on("pageinit",function(event){
+           $(window).on("orientationchange",function(event){
+           alert("方法改变为：" + event.orientation);
+        });                     
+        });
+        </script>
+</head>
+<body>
+        <div data-role="page">
+            <div data-role="header">
+                <h1>orientationchange 事件</h1>
+            </div>
+        <div data-role="content">
+                <p>请试着旋转您的设备！</p>  
+        </div>
+        <div data-role="footer">
+                 <h1></h1>
+        </div>
+        </div>
+        </body>
+</html>

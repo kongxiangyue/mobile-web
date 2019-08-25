@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<head>
+</head>
+<body>
+<canvas id="myCanvas" width="500px" height="500px"></canvas>  
+</body>  
+<script>  
+    var myCanvas = document.getElementById("myCanvas");  
+    var context = myCanvas.getContext("2d");  
+      
+    context.fillStyle = "#e4e4e4";  
+    context.fillRect(0,0,500,500);  
+  
+    context.fillStyle = "rgba(255,0,0,0.2)";  
+    for(i=1;i<15;i++)  
+    {  
+        context.beginPath();
+        context.arc(30*i,30*i,10*i,0,2*Math.PI,true);  
+        context.fill();  
+    }  
+      
+</script>  
+</html>

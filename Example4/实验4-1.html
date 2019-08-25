@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<head>
+<meta charset="UTF-8">
+<title>微微一笑很倾城</title>
+</head>
+
+<body>
+
+<canvas id="myCanvas" width="200px" height="200px"></canvas>  
+
+</body>
+<script>  
+    var myCanvas = document.getElementById("myCanvas");  
+    var context = myCanvas.getContext("2d");  
+      
+    context.strokeStyle = "blue";  
+    context.lineWidth = 5;  
+    context.strokeRect(0,0,200,200);  
+    //context.closePath();  
+  
+    //context.beginPath();  
+    context.strokeStyle = "red";  
+    context.lineWidth = 2;  
+    context.arc(100,100,60,0,2*Math.PI,true);  
+    context.moveTo(140,100);  
+    context.arc(100,100,40,0,Math.PI,false);  
+    context.moveTo(85,80);  
+    context.arc(80,80,5,0,2*Math.PI,true);  
+    context.moveTo(125,80);  
+    context.arc(120,80,5,0,2*Math.PI,true);  
+    context.stroke();  
+</script>  
+</html>

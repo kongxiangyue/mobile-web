@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			function matchString(){
+				var regExp = /\s\*/g;
+				var str = "This * is * a *test * string";
+				var resultString = str.replace(regExp,'-');
+				alert(resultString);
+			}
+		</script>
+	</head>
+	<body onload="matchString()">
+		<p>Some page content</p>
+	</body>
+</html>

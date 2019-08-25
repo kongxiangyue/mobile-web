@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+ <html>
+<head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+      <title>Hello World</title>
+       <link rel="stylesheet" href="../css/jquery.mobile-1.4.5.min.css"/> 
+       <script src="../js/jquery.js"></script>
+      <script src="../js/jquery.mobile-1.4.5.min.js"></script>
+   </head>
+	<body>
+		<div data-role="page" id="pageone">
+			<div data-role="header" data-position="fixed" data-theme="a">
+				<h1>唱片</h1>
+			</div>
+			<div data-role="content">
+				<ul data-role="listview" data-split-icon="gear">
+					<li>
+						<a href="#">
+							<img src="../img/album-bb.jpg">
+							<h2>Broken Bells</h2>
+						</a>
+						<a href="#purchase" data-rel="popup" data-position-to="window" ></a>
+					</li>
+					<li>
+						<a href="#">
+							<img src="../img/album-hc.jpg">
+							<h2>Warning</h2>
+						</a>
+						<a href="#purchase" data-rel="popup" data-position-to="window" ></a>
+					</li>
+					<li>
+						<a href="#">
+							<img src="../img/album-p.jpg">
+							<h2>Wolfgang Amadeus Phoenix</h2>
+						</a>
+						<a href="#purchase" data-rel="popup" data-position-to="window" ></a>
+					</li>
+					<li>
+						<a href="#">
+							<img src="../img/album-ok.jpg">
+							<h3>Of The Blue Colour Of The Sky</h3>
+                       </a>
+						<a href="#purchase" data-rel="popup" data-position-to="window" ></a>	
+					</li>
+					<li>
+						<a href="#">
+							<img src="../img/album-ws.jpg">
+							<h3>Elephant</h3>
+                       </a>
+						<a href="#purchase" data-rel="popup"  data-position-to="window"></a>
+					</li>
+					<li>
+					  <a href="#">
+							<img src="../img/album-rh.jpg">
+							<h3>Kid A</h3>
+                    </a>
+					  <a href="#purchase"	data-rel="popup" data-position-to="window"></a>
+					</li>
+					<li>
+					    <a href="#">
+							<img src="../img/album-xx.jpg">
+							<h3>XX</h3>
+                       </a>
+						<a	href="#purchase" data-rel="popup" data-position-to="window"></a>
+					</li>
+					<li>
+					    <a href="#">
+							<img src="../img/album-mg.jpg">
+							<h3>Congratulations</h3>
+                       </a>
+						<a href="#purchase"  data-rel="popup" data-position-to="window"></a>
+					</li>
+				</ul>
+				<div data-role="popup" id="purchase"class="ui-content">
+					<h3>购买</h3>
+					<p>您确认购买此物品吗?</p>
+					<a href="#" data-role="button" >购买:$10.99</a>
+					<a href="#" data-role="button" data-rel="back">取消</a>
+				</div>
+			</div>
+			<div data-role="footer" data-position="fixed" data-theme="a">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#pageone" data-transition="fade">唱片</a></li>
+						<li><a href="#pagetwo"  data-transition="flip">通讯录</a></li>
+						<li><a href="#pagethree" data-transition="turn">个人信息</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div data-role="page" id="pagetwo">
+			<div data-role="header" data-position="fixed" data-theme="a">
+				<h1>通讯录</h1>
+			</div>
+			<div data-role="content">
+				<ul data-role="listview" data-filter="true" data-filter-placeholder="Search friends...">
+					<li data-role="list-divider">A</li>
+					<li><a href="#">Adam Kinkaid</a></li>
+					<li><a href="#">Alex Wickerham</a></li>
+					<li><a href="#">Avery Johnson</a></li>
+					<li data-role="list-divider">B</li>
+					<li><a href="#">Bob Cabot</a></li>
+					<li data-role="list-divider">C</li>
+					<li><a href="#">Caleb Booth</a></li>
+					<li><a href="#">Christopher Adams</a></li>
+				<li><a href="#">Culver James</a></li>
+					<li data-role="list-divider">D</li>
+					<li><a href="#">David Walsh</a></li>
+					<li><a href="#">Drake Alfred</a></li>
+			</ul>
+		</div>
+		<div data-role="footer" data-position="fixed" data-theme="a">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#pageone" data-transition="fade">唱片</a></li>
+						<li><a href="#pagetwo" data-transition="flip">通讯录</a></li>
+						<li><a href="#pagethree" data-transition="turn">个人信息</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div data-role="page" id="pagethree">
+			<div data-role="header" data-position="fixed" data-theme="a">
+			<h1>个人信息</h1>
+			</div>
+			<div data-role="content">
+				<form action="" method="post" data-transition="none">
+					<div data-role="fieldcontain">
+						<label for="name">姓名:</label>
+				<input type="text" name="name" id="name" value="" required/>
+					</div>
+					<div data-role="fieldcontain">
+						<label for="email">电子邮件:</label>
+						<input type="text" name="email" id="email" value="" required>
+					</div>
+					<div data-role="fieldcontain">
+						<label for="comments">个人简介:</label>
+						<textarea	name="comments"	id="comments"></textarea>
+					</div>
+					<div data-role="fieldcontain">
+						<label for="contacted"></label>
+						<select name="contacted" id="contacted" data-role="slider">
+							<option value="no">No</option>
+							<option value="yes">Yes</option>
+						</select>
+					</div>
+					<input type="submit" value="提交" data-theme="a" />
+				</form>
+			</div>
+			<div data-role="footer" data-position="fixed" data-theme="a">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#pageone" data-transition="fade">唱片</a></li>
+						<li><a href="#pagetwo" data-transition="flip">通讯录</a></li>
+						<li><a href="#pagethree" data-transition="turn">个人信息</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

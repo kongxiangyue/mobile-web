@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="gdk"> 
+<title>background-origin</title>
+<style> 
+div
+{
+	border:1px solid black;
+	padding:35px;
+	background-image:url(1.jpg);
+	background-repeat:no-repeat;
+	background-position:left;
+}
+#div1
+{
+	background-origin:border-box;
+}
+#div2
+{
+	background-origin:content-box;
+}
+</style>
+</head>
+<body>
+<p>background-origin:border-box:</p>
+<div id="div1">
+background-origin属性指定了背景图像的位置区域。可在content-box, padding-box,和 border-box区域内可以放置背景图像。
+</div>
+<p>background-origin:content-box:</p>
+<div id="div2">
+background-origin属性指定了背景图像的位置区域。可在content-box, padding-box,和 border-box区域内可以放置背景图像。
+</div>
+</body>
+</html>

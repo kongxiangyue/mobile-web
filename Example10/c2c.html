@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,
+    user-scalable=no">
+    <title>生鲜网</title>
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+	<link rel="stylesheet" href="css/c2c-style.css">
+	<script src="js/jquery-2.1.1.js"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+</head>
+
+<!-- <script src="js/zns_from.js" type="text/javascript"></script>  
+<script type="text/javascript" src="shichang.js"></script></head>  -->
+<script type="text/javascript">
+var i=1;  
+var j=1;  
+var array1=new Array;  
+var array2=new Array;  
+var array3="";  
+var sumMoney=0;  
+  
+function init()  
+{  
+    $("#textarea").val(localStorage["store"]);    
+}  
+  
+function zhuanhuan()  
+{  
+      
+    $("#a"+(j-1)).css("display","none");  
+    $("#b"+(j-1)).css("display","none");  
+      
+    var p1=document.getElementById('xin1').value; //物品的名称  
+    var p2=parseInt(document.getElementById('xin2').value); //一件物品的价钱  
+    var p3=parseInt(document.getElementById('xin3').value);  //物品质量  
+    var xxx=document.getElementById('x').value;  
+    var zhiliang=$("#zhiliang").val();  
+    if(p3==0)  
+    {  
+        alert(xxx);  
+        return;  
+    }  
+    if($("#xiala").val()=="null")  
+    {     
+        alert(zhiliang);  
+        return;  
+    }  
+    document.getElementById('steps'+j).style.display='';  
+    $("#br"+j).css("display","block");  
+    $("#br"+j+1).css("display","block");  
+      
+        
+    var p4=String(document.getElementById('xiala').value);  
+      
+    var p5;  
+    if(p4=="1")  
+    {  
+        p5=p2/(p3*0.5);  
+        document.getElementById('pq'+i+'1').value=p1+"      "+p5.toFixed(3);  
+        array1[i]=p2;  
+        array2[i]=p1;                    
+    }  
+    var p6;  
+    if(p4=="2")  
+    {   
+        p6=p2/(p3/20);  
+        document.getElementById('pq'+i+'1').value=p1+"      "+p6.toFixed(3);  
+        array1[i]=p2;  
+        array2[i]=p1;  
+    }  
+    var p7;  
+    if(p4=="3")  
+    {    
+        p7=p2/(p3/1000);  
+        document.getElementById('pq'+i+'1').value=p1+"      "+p7.toFixed(3);  
+        array1[i]=p2;  
+        array2[i]=p1;  
+    }  
+    var p8;  
+    if(p5=="4")  
+    {       
+        p8=p2/p3;  
+        document.getElementById('pq'+i+'1').value=p1+"      "+p8.toFixed(3);  
+        array1[i]=p2;  
+        array2[i]=p1;  
+    }  
+      
+    i++;  
+    j++;  
+      
+        document.getElementById('xin1').value="";  
+        document.getElementById('xin2').value="";  
+        document.getElementById('xin3').value="";       
+}  
+  
+  
+function result()  
+{  
+    $("#l22").css("display","none");  
+    var k=0;  
+      
+  
+    $.mobile.changePage("#jieguo","slidedown",false,false);  
+    var sum=0;  
+   
+      
+      
+    for(var m=1,n=1;m<=20,n<=20;m++,n++)  
+    {  
+        if(document.getElementById('c'+m).checked==true)  
+        {  
+            k++;  
+            $("#l"+m).css("display","block");  
+            $("#i"+m).css("display","block");  
+            sum=sum+parseInt(document.getElementById('pq'+m+2).value)*array1[m];  
+              
+  
+            array3=array3+"\n"+array2[m]+":"+array1[m]+" yuan";  
+            document.getElementById('l'+m).innerHTML=array2[m];  
+              
+              
+            document.getElementById('i'+m).value=array1[m]*parseInt(document.getElementById('pq'+m+2).value)+" yuan";  
+              
+            document.getElementById('c'+m).checked=false;  
+        }  
+    }  
+    if(k==0){  
+        $("#l22").css("display","block");  
+    }  
+              
+    else{  
+            $("#l21").css("display","block");  
+        sumMoney=sumMoney+sum;  
+        document.getElementById('l21').innerHTML=document.getElementById('xxx').value+sumMoney.toString()+" yuan";  
+    }  
+      
+}  
+  
+function save()  
+{  
+    $.mobile.changePage("#begin","slidedown",false,false);  
+    localStorage["store"]=$("#textarea").val();   
+};  
+</script>
+
+<body onload="init();">  
+<div id="begin" data-role="page" data-theme="a">  
+    <div data-role="header" data-position="fixed">
+        <a href="#login" data-role="button" data-icon="info">登录</a>
+         <h2>生鲜网</h2>
+        <a href="#" data-role="button" data-icon="search" class="ui-btn-right">搜索</a> 
+    </div>
+     
+    <!-- 主界面 -->  
+    <div id="jiemian1"  data-role="content" class="ui-grid-b">                           
+        <div class="ui-block-a"><a href="#main" data-role="button" data-theme="a" data-transition="pop">购物车</a></div>
+        <div class="ui-block-b">
+            <fieldset>
+                <select>
+                    <option>分类</option>
+                    <option>水果</option>
+                    <option>海鲜</option>
+                    <option>肉类</option>
+                    <option>干货</option>
+                    <option>蔬菜</option>
+                </select>
+              </fieldset>
+        </div>
+        <div class="ui-block-c">
+            <a href="#jieshao" data-rel="dialog"  data-transition="pop" data-role="button" data-theme="a" data-transition="pop">个人中心</a>
+        </div>
+    </div>  
+       
+    <div data-role="content" class="ui-grid-b">
+    	<div class="ui-block-a">
+	    	<img src="imgs/黄金肉蟹.jpg">
+	    	<a href="">加入购物车</a><br>
+	    	<span>黄金肉蟹</span>
+    	</div>
+    	<div class="ui-block-b">
+    		<img src="imgs/干炸小黄鱼.jpg">
+            <a href="">加入购物车</a><br>
+    		<span>干炸小黄鱼</span>
+    	</div>
+    	<div class="ui-block-c">
+    		<img src="imgs/黄金肉蟹.jpg">
+            <a href="">加入购物车</a><br>
+    		<span>黄金肉蟹</span>
+    	</div>
+    	<div class="ui-block-a">
+    		<img src="imgs/干炸小黄鱼.jpg">
+            <a href="">加入购物车</a><br>
+    		<span>干炸小黄鱼</span>
+    	</div>
+    	<div class="ui-block-b">
+    		<img src="imgs/黄金肉蟹.jpg">
+            <a href="">加入购物车</a><br>
+    		<span>黄金肉蟹</span>
+    	</div>
+    	<div class="ui-block-c">
+    		<img src="imgs/干炸小黄鱼.jpg">
+            <a href="">加入购物车</a><br>
+    		<span>干炸小黄鱼</span>
+    	</div>
+    	<div class="ui-block-a">
+    		<img src="imgs/黄金肉蟹.jpg">
+            <a href="">加入购物车</a><br>
+    		<span>黄金肉蟹</span>
+    	</div>
+    	<div class="ui-block-b">
+    		<img src="imgs/干炸小黄鱼.jpg">
+            <a href="">加入购物车</a><br>
+    		<span>干炸小黄鱼</span>
+    	</div>
+    	<div class="ui-block-c">
+    		<img src="imgs/黄金肉蟹.jpg">
+            <a href="">加入购物车</a><br>
+    		<span>黄金肉蟹</span>
+    	</div>
+    </div>
+
+    <div data-role="footer" data-position="fixed">  
+        <h2>copyright</h2>  
+    </div>  
+</div>
+  
+<!-- 软件介绍 -->  
+<div id="login" data-role="page">
+    <div data-role="content">
+        <form>
+      <div data-role="fieldcontain">
+        <label for="lname">账号</label>
+        <input type="text" name="lname" id="lname">
+        <label for="fname">密码</label>
+        <input type="password" name="fname" id="fname">
+      </div>
+      <div data-role="fieldcontain">
+        <label for="switch">记住密码</label>
+        <select name="switch" id="switch" data-role="slider">
+          <option value="on">On</option>
+          <option value="off">Off</option>
+        </select>
+        <a href="">没有账号？注册</a>&nbsp&nbsp<a href="#vip">成为会员</a>
+      </div>
+      <input type="submit" data-inline="true" value="提交">
+        </form>
+    </div>
+</div>
+<div id="jieshao" data-role="page">  
+    <header data-role="header"><h1>功能介绍</h1></header>  
+    <div data-role="content" class="content">  
+        <p>现有功能：<br>  
+            1、物品单价转换功能<br>  
+            2、物品总价计算功能<br>  
+            3、备忘录功能<br>  
+            后续有待开发功能：<br>  
+            1、通过二维码扫描网上比价功能<br>  
+            2、买过物品本地存储功能<br>  
+            ……    
+        </p>  
+    </div>  
+    <footer data-role="footer" data-position="fixed"><h1>copyright</h1></footer>  
+</div>  
+  
+<div id="beiwanglu" data-role="page">  
+    <div data-role="header">  
+	    <a href="#begin" data-icon="back" id="beiwang_back">返回</a>  
+	        <h2>备忘录</h2>  
+	    <a data-icon="check" id="save" onclick="save();">保存</a>       
+    </div>  
+    <div data-role="content">  
+       <table>这里可记录您要卖的物品...</table>  
+       <textarea id="textarea" style="height: 200px;"></textarea>  
+    </div>  
+    <div data-role="footer" data-position="fixed">  
+        <h2>copyright</h2>  
+    </div>  
+</div>  
+  
+
+<div data-role="page" id="vip" data-theme="a">
+    <div data-role="content">
+        <form>
+            <div data-role="fieldcontain">
+                <label for="lname">账号</label>
+                <input type="text" name="lname" id="lname">
+                <label for="fname">用户名</label>
+                <input type="text" name="fname" id="fname">
+                <label for="fname">密码</label>
+                <input type="password" name="fname" id="fname">
+                <label for="fname">确认密码</label>
+                <input type="password" name="fname" id="fname">
+            </div>
+            <input type="submit" data-inline="true" value="提交">
+        </form>
+    </div>
+</div>
+
+<div data-role="page" id="main" data-theme="a">       
+    <div data-role="header">  
+        <a href="#begin" data-icon="back" id="main_back">返回</a>  
+        <h2>价格计算</h2>  
+    </div>  
+       
+    <div data-role="conetnt">  
+        <div id="steps">  
+              
+            <fieldset class="step">  
+                 
+                <br>  
+                <label>物品名称</label>  
+                <input id="xin1" value="商品" type='text' AUTOCOMPLETE=OFF />  
+                <label>物品价钱(元)</label>  
+                <input id="xin2" value="0" type='text'  AUTOCOMPLETE=OFF />   
+                <label>物品质量</label></br>  
+                <input id="xin3" value="0" type='text'  AUTOCOMPLETE=OFF />          
+                  
+                                     
+                <select id="xiala" data-native-menu="false" data-theme="a">  
+                       <option value="null" data-placeholder="true">选择质量单位...</option>  
+                       <option id="xin4" value="1">斤</option>    
+                       <option id="xin5" value="2">两</option>    
+                       <option id="xin6" value="3">千克</option>    
+                       <option id="xin7" value="4">克</option>  
+                </select>                                                     
+                <button id="bt1" onclick="zhuanhuan();">确认转换</button>                                                                            
+            </fieldset>                           
+             
+        </div>  
+        <br>  
+         
+        <hr id="br1" style="display: none;">     
+        <div id="steps1" style="display:none;" >  
+            <label>商品信息(元/千克)</label>  
+            <input id="pq11" type='text' AUTOCOMPLETE=OFF  readOnly/>  
+            <label>要买商品数量</label>  
+            <input id="pq12" value="1" type='text' AUTOCOMPLETE=OFF />  
+            <input type="checkbox"  id="c1" />  
+        	<label for="c1" data-theme="c">是否购买</label>  
+            <a id="a1" data-role="button" data-theme="a" onclick="result();">结账</a>       
+            <a id="b1" href="#begin" data-transition="pop" data-role="button" data-theme="a">返回</a>                          
+        </div>  
+        <hr id="br2" style="display: none;">            
+        <hr id="br3" style="display: none;">     
+        <div id="steps2" style="display:none;">  
+            <label>商品信息(元/千克)</label>  
+            <input id="pq21" type='text' AUTOCOMPLETE=OFF  readOnly/>  
+            <label>要买商品数量</label>  
+            <input id="pq22" value="1" type='text' AUTOCOMPLETE=OFF />  
+            <input type="checkbox"  id="c2" />  
+        	<label for="c2" data-theme="c">是否购买</label>  
+        	<a id="a2" data-role="button" data-theme="a" onclick="result();">结账</a>       
+			<a id="b2" href="#begin" data-transition="pop" data-role="button" data-theme="a">返回</a>                                        
+        </div>  
+        <hr id="br4" style="display: none;">       
+        <hr id="br5" style="display: none;">     
+        <div id="steps3" style="display:none;" >  
+            <label>商品信息(元/千克)</label>  
+            <input id="pq31" type='text' AUTOCOMPLETE=OFF  readOnly/>  
+            <label>要买商品数量</label>  
+            <input id="pq32" value="1" type='text' AUTOCOMPLETE=OFF />  
+            <input type="checkbox" name="genre" id="c3" />  
+        	<label for="c3" data-theme="c">是否购买</label>  
+            <a id="a3" data-role="button" data-theme="a" onclick="result();">结账</a>       
+            <a id="b3" href="#begin" data-transition="pop" data-role="button" data-theme="a">返回</a>                                              
+        </div>  
+        <hr id="br6" style="display: none;">    
+        <hr id="br7" style="display: none;">     
+        <div id="steps4" style="display:none;" >  
+            <label>商品信息(元/千克)</label>  
+            <input id="pq41" type='text' AUTOCOMPLETE=OFF  readOnly/>  
+            <label>要买商品数量</label>  
+            <input id="pq42" value="1" type='text' AUTOCOMPLETE=OFF />  
+            <input type="checkbox" name="genre" id="c4" />  
+            <label for="c4" data-theme="c">是否购买</label>  
+            <a id="a4" data-role="button" data-theme="a" onclick="result();">结账</a>       
+            <a id="b4" href="#begin" data-transition="pop" data-role="button" data-theme="a">返回</a>                                                  
+        </div>  
+        <hr id="br8" style="display: none;">  
+        <hr id="br9" style="display: none;">     
+        <div id="steps5" style="display:none;">  
+            <label>商品信息(元/千克)</label>  
+            <input id="pq51" type='text' AUTOCOMPLETE=OFF  readOnly/>  
+            <label>要买商品数量</label>  
+            <input id="pq52" value="1" type='text' AUTOCOMPLETE=OFF />  
+            <input type="checkbox" name="genre" id="c5"/>  
+        	<label for="c5" data-theme="c">是否购买</label>  
+            <a id="a5" data-role="button" data-theme="a" onclick="result();">结账</a>       
+			<a id="b5" href="#begin" data-transition="pop" data-role="button" data-theme="a">返回</a>                                             
+        </div>  
+        <hr id="br10" style="display: none;">              
+        <hr id="br11" style="display: none;">     
+        <div id="steps6" style="display:none;" >  
+            <label>商品信息(元/千克)</label>  
+            <input id="pq61" type='text' AUTOCOMPLETE=OFF  readOnly/>  
+            <label>要买商品数量</label>  
+            <input id="pq62" value="1" type='text' AUTOCOMPLETE=OFF />  
+            <input type="checkbox" name="genre" id="c6" />  
+        	<label for="c6" data-theme="c">是否购买</label>  
+            <a id="a6" data-role="button" data-theme="a" onclick="result();">结账</a>       
+			<a id="b6" href="#begin" data-transition="pop" data-role="button" data-theme="a">返回</a>                                          
+        </div>  
+        <hr id="br12" style="display: none;">           
+        <hr id="br13" style="display: none;">     
+        <div id="steps7" style="display:none;" >  
+            <label>商品信息(元/千克)</label>  
+            <input id="pq71" type='text' AUTOCOMPLETE=OFF  readOnly/>  
+            <label>要买商品数量</label>  
+            <input id="pq72" value="1" type='text' AUTOCOMPLETE=OFF />  
+            <input type="checkbox" name="genre" id="c7" />  
+        	<label for="c7" data-theme="c">是否购买</label>  
+            <a id="a7" data-role="button" data-theme="a" onclick="result();">结账</a>       
+			<a id="b7" href="#begin" data-transition="pop" data-role="button" data-theme="a">返回</a>                                              
+        </div>  
+        <hr id="br14" style="display: none;">    
+        <hr id="br15" style="display: none;">     
+        <div id="steps8" style="display:none;" >  
+            <label>商品信息(元/千克)</label>  
+            <input id="pq81" type='text' AUTOCOMPLETE=OFF  readOnly/>  
+            <label>要买商品数量</label>  
+            <input id="pq82" value="1" type='text' AUTOCOMPLETE=OFF />  
+            <input type="checkbox" name="genre" id="c8" />  
+        	<label for="c8" data-theme="c">是否购买</label>  
+            <a id="a8" data-role="button" data-theme="a" onclick="result();">结账</a>       
+            <a id="b8" href="#begin" data-transition="pop" data-role="button" data-theme="a">返回</a>                                           
+        </div>  
+        <hr id="br16" style="display: none;">           
+        <hr id="br17" style="display: none;">     
+        <div id="steps9" style="display:none;" >  
+            <label>商品信息(元/千克)</label>  
+            <input id="pq91" type='text' AUTOCOMPLETE=OFF  readOnly/>  
+            <label>要买商品数量</label>  
+            <input id="pq92" value="1" type='text' AUTOCOMPLETE=OFF />  
+            <input type="checkbox" name="genre" id="c9" />  
+        	<label for="c9" data-theme="c">是否购买</label>  
+            <a id="a9" data-role="button" data-theme="a" onclick="result();">结账</a>       
+            <a id="b9" href="#begin" data-transition="pop" data-role="button" data-theme="a">返回</a>                                            
+        </div>  
+        <hr id="br18" style="display: none;">           
+        <hr id="br19" style="display: none;">     
+        <div id="steps10" style="display:none;" >  
+            <label>商品信息(元/千克)</label>  
+            <input id="pq101" type='text' AUTOCOMPLETE=OFF  readOnly/>  
+            <label>要买商品数量</label>  
+            <input id="pq102" value="1" type='text' AUTOCOMPLETE=OFF />  
+            <input type="checkbox" name="genre" id="c10" />  
+        	<label for="c10" data-theme="c">是否购买</label>  
+            <a id="a10" data-role="button" data-theme="a" onclick="result();">结账</a>          
+            <a id="b10" href="#begin" data-transition="pop" data-role="button" data-theme="a">返回</a>                                          
+        </div>  
+        <hr id="br20" style="display: none;">  
+        <hr id="br21" style="display: none;">     
+        <div id="steps11" style="display:none;" >  
+            <label>商品信息(元/千克)</label>  
+            <input id="pq111" type='text' AUTOCOMPLETE=OFF  readOnly/>  
+            <label>要买商品数量</label>  
+            <input id="pq112" value="1" type='text' AUTOCOMPLETE=OFF />  
+            <input type="checkbox" name="genre" id="c11" />  
+        	<label for="c11" data-theme="c">是否购买</label>  
+            <a id="a11" data-role="button" data-theme="a" onclick="result();">结账</a>          
+            <a id="b11" href="#begin" data-transition="pop" data-role="button" data-theme="a">返回</a>                                            
+        </div>  
+        <hr id="br22" style="display: none;">          
+        <hr id="br23" style="display: none;">     
+        <div id="steps12" style="display:none;" >  
+            <label>商品信息(元/千克)</label>  
+            <input id="pq121" type='text' AUTOCOMPLETE=OFF  readOnly/>  
+            <label>要买商品数量</label>  
+            <input id="pq122" value="1" type='text' AUTOCOMPLETE=OFF />  
+            <input type="checkbox" name="genre" id="c12" />  
+        	<label for="c12" data-theme="c">是否购买</label>  
+            <a id="a12" data-role="button" data-theme="a" onclick="result();">结账</a>          
+            <a id="b12" href="#begin" data-transition="pop" data-role="button" data-theme="a">返回</a>                                          
+        </div>  
+        <hr id="br24" style="display: none;">            
+        <hr id="br25" style="display: none;">     
+        <div id="steps13" style="display:none;" >  
+            <label>商品信息(元/千克)</label>  
+            <input id="pq131" type='text' AUTOCOMPLETE=OFF  readOnly/>  
+            <label>要买商品数量</label>  
+            <input id="pq132" value="1" type='text' AUTOCOMPLETE=OFF />  
+            <input type="checkbox" name="genre" id="c13" />  
+        	<label for="c13" data-theme="c">是否购买</label>  
+            <a id="a13" data-role="button" data-theme="a" onclick="result();">结账</a>          
+            <a id="b13" href="#begin" data-transition="pop" data-role="button" data-theme="a">返回</a>                                            
+        </div>  
+        <hr id="br26" style="display: none;">           
+        <hr id="br27" style="display: none;">     
+        <div id="steps14" style="display:none;" >  
+            <label>商品信息(元/千克)</label>  
+            <input id="pq141" type='text' AUTOCOMPLETE=OFF  readOnly/>  
+            <label>要买商品数量</label>  
+            <input id="pq142" value="1" type='text' AUTOCOMPLETE=OFF />  
+            <input type="checkbox" name="genre" id="c14" />  
+        	<label for="c14" data-theme="c">是否购买</label>  
+            <a id="a14" data-role="button" data-theme="a" onclick="result();">结账</a>          
+        	<a id="b14" href="#begin" data-transition="pop" data-role="button" data-theme="a">返回</a>                                            
+        </div>  
+        <hr id="br28" style="display: none;">  
+        <hr id="br29" style="display: none;">     
+        <div id="steps15" style="display:none;" >  
+            <label>商品信息(元/千克)</label>  
+            <input id="pq151" type='text' AUTOCOMPLETE=OFF  readOnly/>  
+            <label>要买商品数量</label>  
+            <input id="pq152" value="1" type='text' AUTOCOMPLETE=OFF />  
+            <input type="checkbox" name="genre" id="c15" />  
+        	<label for="c15" data-theme="c">是否购买</label>  
+           	<a id="a15" data-role="button" data-theme="a" onclick="result();">结账</a>       
+            <a id="b15" href="#begin" data-transition="pop" data-role="button" data-theme="a">返回</a>                                       
+        </div>  
+        <hr id="br30" style="display: none;">    
+        <hr id="br31" style="display: none;">     
+        <div id="steps16" style="display:none;" >  
+            <label>商品信息(元/千克)</label>  
+            <input id="pq161" type='text' AUTOCOMPLETE=OFF  readOnly/>  
+            <label>要买商品数量</label>  
+            <input id="pq162" value="1" type='text' AUTOCOMPLETE=OFF />  
+            <input type="checkbox" name="genre" id="c16" />  
+        	<label for="c16" data-theme="c">是否购买</label>  
+            <a id="a16" data-role="button" data-theme="a" onclick="result();">结账</a>          
+            <a id="b16" href="#begin" data-transition="pop" data-role="button" data-theme="a">返回</a>                                          
+        </div>  
+        <hr id="br32" style="display: none;">  
+        <hr id="br33" style="display: none;">     
+        <div id="steps17" style="display:none;" >  
+            <label>商品信息(元/千克)</label>  
+            <input id="pq171" type='text' AUTOCOMPLETE=OFF  readOnly/>  
+            <label>要买商品数量</label>  
+            <input id="pq172" value="1" type='text' AUTOCOMPLETE=OFF />  
+            <input type="checkbox" name="genre" id="c17" />  
+        	<label for="c17" data-theme="c">是否购买</label>  
+            <a id="a17" data-role="button" data-theme="a" onclick="result();">结账</a>          
+            <a id="b17" href="#begin" data-transition="pop" data-role="button" data-theme="a">返回</a>                                                
+        </div>  
+        <hr id="br34" style="display: none;">          
+        <hr id="br35" style="display: none;">     
+        <div id="steps18" style="display:none;" >    
+            <label>商品信息(元/千克)</label>  
+            <input id="pq181" type='text' AUTOCOMPLETE=OFF  readOnly/>  
+            <label>要买商品数量</label>  
+            <input id="pq182" value="1" type='text' AUTOCOMPLETE=OFF />  
+            <input type="checkbox" name="genre" id="c18" />  
+        	<label for="c18" data-theme="c">是否购买</label>  
+            <a id="a18" data-role="button" data-theme="a" onclick="result();">结账</a>          
+            <a id="b18" href="#begin" data-transition="pop" data-role="button" data-theme="a">返回</a>                                      
+        </div>  
+        <hr id="br36" style="display: none;">  
+        <hr id="br37" style="display: none;">     
+        <div id="steps19" style="display:none;" >  
+            <label>商品信息(元/千克)</label>  
+            <input id="pq191" type='text' AUTOCOMPLETE=OFF  readOnly/>  
+            <label>要买商品数量</label>  
+            <input id="pq192" value="1" type='text' AUTOCOMPLETE=OFF />  
+            <input type="checkbox" name="genre" id="c19" />  
+        	<label for="c19" data-theme="c">是否购买</label>  
+            <a id="a19" data-role="button" data-theme="a" onclick="result();">结账</a>          
+            <a id="b19" href="#begin" data-transition="pop" data-role="button" data-theme="a">返回</a>                                                    
+        </div>  
+        <hr id="br38" style="display: none;">  
+        <hr id="br39" style="display: none;">     
+        <div id="steps20" style="display:none;" >  
+            <label>商品信息(元/千克)</label>  
+            <input id="pq201" type='text' AUTOCOMPLETE=OFF  readOnly/>  
+            <label>要买商品数量</label>  
+            <input id="pq202" value="1" type='text' AUTOCOMPLETE=OFF />  
+            <input type="checkbox" name="genre" id="c20" />  
+        	<label for="c20"data-theme="c">是否购买</label>  
+            <a id="a20" data-role="button" data-theme="a" onclick="result();">结账</a>          
+            <a id="b20" href="#begin" data-transition="pop" data-role="button" data-theme="a">返回</a>                                              
+        </div>  
+        <hr id="br40" style="display: none;">  
+     </div>  
+     <div data-role="footer" data-position="fixed">  
+        <h2>copyright</h2>  
+     </div>  
+</div>                                      
+          
+<div id="jieguo" data-role="page">  
+        
+    <div data-role="header" data-position="fixed">  
+    <h2>购物结账汇总</h2>  
+    </div>  
+          
+    <!-- 结果汇总 -->  
+    <div id="jghz" data-role="content" >  
+        <label id="l1" style="display:none;"></label>  
+        <input id="i1" style="display:none; " type='text' AUTOCOMPLETE=OFF  readOnly/>  
+          
+        <label id="l2" style="display:none;"></label>  
+        <input id="i2" style="display:none;"  type='text' AUTOCOMPLETE=OFF  readOnly/>  
+               
+        <label id="l3" style="display:none;"></label>  
+        <input id="i3" style="display:none;"  type='text' AUTOCOMPLETE=OFF  readOnly/>  
+               
+        <label id="l4" style="display:none;"></label>  
+        <input id="i4" style="display:none;" type='text' AUTOCOMPLETE=OFF  readOnly/>  
+               
+        <label id="l5" style="display:none;"></label>  
+        <input id="i5" style="display:none;"   type='text' AUTOCOMPLETE=OFF  readOnly/>  
+               
+        <label id="l6" style="display:none;"></label>  
+        <input id="i6" style="display:none;"   type='text' AUTOCOMPLETE=OFF  readOnly/>  
+               
+        <label id="l7" style="display:none;"></label>  
+        <input id="i7" style="display:none;"  type='text' AUTOCOMPLETE=OFF  readOnly/>  
+               
+        <label id="l8" style="display:none;"></label>  
+        <input id="i8" style="display:none; "  type='text' AUTOCOMPLETE=OFF  readOnly/>  
+               
+        <label id="l9" style="display:none;"></label>  
+        <input id="i9" style="display:none; "  type='text' AUTOCOMPLETE=OFF  readOnly/>  
+               
+        <label id="l10" style="display:none;"></label>  
+        <input id="i10" style="display:none; "  type='text' AUTOCOMPLETE=OFF  readOnly/>  
+               
+        <label id="l11" style="display:none;"></label>  
+        <input id="i11" style="display:none;"  type='text' AUTOCOMPLETE=OFF  readOnly/>  
+          
+        <label id="l12" style="display:none;"></label>  
+        <input id="i12" style="display:none; "  type='text' AUTOCOMPLETE=OFF  readOnly/>  
+          
+        <label id="l13" style="display:none;"></label>  
+        <input id="i13" style="display:none;"  type='text' AUTOCOMPLETE=OFF  readOnly/>  
+          
+        <label id="l14" style="display:none;"></label>  
+        <input id="i14" style="display:none;"  type='text' AUTOCOMPLETE=OFF  readOnly/>  
+          
+        <label id="l15" style="display:none;"></label>  
+        <input id="i15" style="display:none;"  type='text' AUTOCOMPLETE=OFF  readOnly/>  
+          
+        <label id="l16" style="display:none;"></label>  
+        <input id="i16" style="display:none;" type='text' AUTOCOMPLETE=OFF  readOnly/>  
+          
+        <label id="l17" style="display:none;"></label>  
+        <input id="i17" style="display:none; "  type='text' AUTOCOMPLETE=OFF  readOnly/>  
+          
+        <label id="l18" style="display:none;"></label>  
+        <input id="i18" style="display:none; "  type='text' AUTOCOMPLETE=OFF  readOnly/>  
+          
+        <label id="l19" style="display:none;"></label>  
+        <input id="i19" style="display:none; "  type='text' AUTOCOMPLETE=OFF  readOnly/>  
+          
+        <label id="l20" style="display:none;"></label>  
+        <input id="i20" style="display:none; "  type='text' AUTOCOMPLETE=OFF  readOnly/>  
+          
+        <label id="l21" style="display:none;"></label>  
+        <label id="l22" style="display:none;">您没有购买物品哦！！！</label>  
+        <input id="xxx" value="总共消费：" style="display:none; "  type='text' AUTOCOMPLETE=OFF  readOnly/>  
+        <input id="x" value="商品质量不能为0,请重新输入" style="display:none; "   type='text' AUTOCOMPLETE=OFF  readOnly/>  
+        <input id="zhiliang" value="请选择质量单位！" style="display:none; "   type='text' AUTOCOMPLETE=OFF  readOnly/>  
+        <input id="check" value="您还没有确认购买物品！！！" style="display:none; "   type='text' AUTOCOMPLETE=OFF  readOnly/>     
+                    
+        <textarea id="shuchu" cols="50" rows="5" style="display:none; width:400px; height:103px; margin-left: 80px;"></textarea>  
+          
+        <a href="#begin" data-role="button" data-theme="e" data-transition="pop">返回主页</a>  
+    </div>  
+  
+  	<div data-role="footer" data-position="fixed">  
+        <h2>copyright</h2>  
+  	</div>  
+</div>  
+</body>  
+</html>  

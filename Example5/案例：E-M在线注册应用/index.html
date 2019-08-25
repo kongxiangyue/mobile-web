@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans"> 
+<head>
+	<link rel="stylesheet" href="./css/bootstrap.min.css" >
+	<link rel="stylesheet" href="./css/bootstrap-theme.min.css" >
+</head>
+<body>
+	<div class="container">
+		<div class="row clearfix">
+			<div class="col-md-3 column">
+			</div>
+			<div class="col-md-6 column">
+				<center><h3><strong>E-M在线注册</strong></h3></center>
+				<form role="form" action="#" method="post">
+					<div class="form-group">
+						 <label >帐&nbsp号</label><input type="text" class="form-control" id="id" required="required" />
+					</div>
+					
+					<div class="form-group">
+						 <label>密&nbsp码</label><input type="password" class="form-control" id="password" required="required" />
+					</div>
+					
+					<div class="form-group">
+						 <label>昵&nbsp称</label><input type="text" class="form-control" id="nickname" required="required" />
+					</div>
+					
+					<div class="form-group">
+						 <label >真&nbsp实&nbsp姓&nbsp名</label><input type="text" class="form-control" id="realname" />
+					</div>
+					
+					<div class="form-group">
+						 <label >邮&nbsp箱</label><input type="email" class="form-control" id="email" required="required" />
+					</div>
+					
+					<div class="form-group">
+						 <label >手&nbsp机&nbsp号&nbsp码 </label> <input type="text" class="form-control" id="phone" required="required" />
+					</div>
+					
+					 <label >性别</label><br>
+					 男<input type="radio" id="sex" value="man" /><br>
+					 女<input type="radio" id="sex" value="female" /><br><br>
+				
+					 <label >个人爱好</label><br>
+					 篮球：<input type="checkbox" id="basketball" value="1" /><br>
+					 其他：<input type="checkbox"  id="other" value="1" /><br>
+					 <textarea  id="other_favorite" class="form-control" required="required"> </textarea><br>
+					 
+					 <div class="form-group">
+						 <label >职业：</label>
+						 <select class="form-control" id="career" >
+						  <option value ="stu">学生</option>
+						  <option value ="tea">老师</option>
+						  <option value="opel">Opel</option>
+						  <option value="other">other</option>
+						</select>
+					</div><br><br><br>
+					
+					
+					<button type="submit" class="btn btn-default">提交</button>
+					<button type="reset" class="btn btn-default">重置</button>
+					<br><br><br><br><br>
+				</form>
+			</div>
+			<div class="col-md-3 column">
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+	<script src="./js/bootstrap.min.js" </script>
+</body>
+</html>
