@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+
+        <style>
+            input[type="radio"] {
+                position: absolute;
+                clip: rect(0, 0, 0, 0);
+            }
+
+            input[type="radio"] + label::before {
+                content: "  ";
+                background-image: url("r-ck2.png");
+                background-size: 1em 1em;
+                display: inline-block;
+                width: 1em;
+                height: 1em;
+            }
+
+            label {
+                color: green;
+            }
+
+
+            input[type="radio"]:checked + label::before {
+            
+                content: "  ";
+           background-image: url("r-ck.png");
+           background-size: 1em 1em;
+           display: inline-block;
+           width: 1em;
+           height: 1em;
+
+            }
+
+            form {
+                font-size: 20px;
+            }
+
+
+            p::before {
+                background-image: url("r-ch2.png");
+            }
+        </style>
+
+
+    </head>
+    <body>
+            <form action="">
+                    <input type="radio" class="myradio" name="s1" id="s10" /> <label for="s10">选项一</label>
+                    <input type="radio" class="myradio" name="s1" id="s11"/>   <label  for="s11">选项二</label>
+            </form>
+
+
+            <p>这是一段话</p>
+         
+    </body>
+</html>
