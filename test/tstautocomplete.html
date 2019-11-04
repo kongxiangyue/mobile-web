@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <style>
+            .mybtn {
+                display:block;
+                width: 80px;
+                height: 40px;
+                border-radius: 10%;
+                background-color: green;
+                color: aliceblue;
+                font-size: 20px;
+                font-family: Arial, Helvetica, sans-serif;
+                text-align: center;
+                text-decoration: none;
+                line-height: 40px;
+                
+            }
+
+            .mybtn:link {
+                font-style: normal;
+            }
+            .mybtn:hover {
+                background-color: lightgreen;
+                cursor:pointer;
+            }
+
+
+
+        </style>
+
+        
+    
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+
+        
+
+    </head>
+    <body>
+        <form  action="https://www.baidu.com/s" 
+        novalidate
+        autocomplete="on"
+        id="form1">
+            <input type="email" autofocus>
+            <input type="submit" value="提交">
+        </form>
+
+        <input type="text" name="wd" form="form1" >
+
+
+
+        <form >
+            <label ><input type="checkbox" id="checkk1"/>选11</label>
+            <label ><input type="checkbox" id="checkk2"/>选22</label>
+            <label ><input type="checkbox" id="checkk3"/>选33</label>
+            <br>
+
+            <input type="checkbox" id="check1"/><label for="check1">选择1</label>
+            <input type="checkbox" id="check2"/><label for="check2">选择2</label>
+            <input type="checkbox" id="check3"/><label for="check3">选择3</label>
+            <br>
+            <label><input name="sex" type="radio" id="check1"/>111</label>
+            <label><input name="sex" type="radio" id="check2"/>2222</label>
+            <label><input name="year" type="radio" id="check3"/>3333</label>
+            <label><input name="year" type="radio" id="check3"/>4444</label>
+
+
+            <input class="mybtn" onclick="alert('你好');" type="button" value="按键">
+        </form>
+
+        <a class="mybtn" href="#">按键</a>
+
+
+        
+
+
+    </body>
+</html
