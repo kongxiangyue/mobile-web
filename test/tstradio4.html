@@ -14,7 +14,7 @@
         <style>
             input[type="radio"] {
                 position: absolute;
-                clip: rect(0, 0, 0, 0);
+                clip: rect(0px, 0px,0px, 0px);
             }
 
             input[type="radio"] + label::before {
@@ -42,6 +42,38 @@
 
             }
 
+
+
+            input[type="checkbox"] {
+                position: absolute;
+                clip: rect(0px, 0px,0px, 0px);
+            }
+
+            input[type="checkbox"] + label::before {
+                content: "  ";
+                background-image: url("r-ck2.png");
+                background-size: 1em 1em;
+                display: inline-block;
+                width: 1em;
+                height: 1em;
+            }
+
+            label {
+                color: green;
+            }
+
+
+            input[type="checkbox"]:checked + label::before {
+            
+                content: "  ";
+           background-image: url("r-ck.png");
+           background-size: 1em 1em;
+           display: inline-block;
+           width: 1em;
+           height: 1em;
+
+            }
+
             form {
                 font-size: 20px;
             }
@@ -58,6 +90,7 @@
             <form action="">
                     <input type="radio" class="myradio" name="s1" id="s10" /> <label for="s10">选项一</label>
                     <input type="radio" class="myradio" name="s1" id="s11"/>   <label  for="s11">选项二</label>
+
             </form>
 
 
