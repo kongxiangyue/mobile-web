@@ -76,7 +76,7 @@
 
 <body>
 
-  <div data-role="page">
+  <div data-role="page" id="page1">
     <div data-role="header">
       留言板样例
     </div>
@@ -107,9 +107,49 @@
     <div data-role="footer" data-position="fixed" data-tap-toggle="false">
       <nav data-role="navbar">
         <ul>
-          <li><a href="#" class="ui-btn-active">列表</a></li>
-          <li><a href="#">留言</a></li>
-          <li><a href="#">工具</a></li>
+          <li><a href="#page1" class="ui-btn-active ui-state-persist">列表</a></li>
+          <li><a href="#page2">留言</a></li>
+          <li><a href="#page3">工具</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+
+  <div data-role="page" id="page2">
+    <div data-role="header">
+      留言板样例
+    </div>
+
+    <div data-role="content" class="ui-content">
+      <ul data-role="listview" id="mainlist">
+        <li>
+             <img src="../img/blackberry_10.png">
+                     <h2>BlackBerry 10</h2>
+                      <p>BlackBerry launched the Z10 and Q10 with the new BB10 OS</p>
+                       <p class="ui-li-aside">BlackBerry</p>
+                   </li>
+                 <li>
+                     <img src="../img/lumia_800.png" class="ui-li-thumb">
+                    <h2>WP 7.8</h2>
+                       <p>Nokia rolls out WP 7.8 to Lumia 800</p>
+                       <p class="ui-li-aside">Windows Phone</p>
+                  </li>
+                <li>
+                    <img src="../img/galaxy_express.png" class="ui-li-thumb">
+                     <h2>Galaxy</h2>
+                       <p>New Samsung Galaxy Express</p>
+                      <p class="ui-li-aside">Samsung</p>
+                 </li>
+              </ul>
+    </div>
+
+    <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+      <nav data-role="navbar">
+        <ul>
+          <li><a href="#page1" >列表</a></li>
+          <li><a href="#page2" class="ui-btn-active ui-state-persist">留言</a></li>
+          <li><a href="#page3">工具</a></li>
         </ul>
       </nav>
     </div>
