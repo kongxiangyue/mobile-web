@@ -67,7 +67,34 @@
     }
 
     
-    $(document).ready(onReady);
+    //$(document).ready(onReady);
+    $(document).on("pageinit"
+      , "#page1"
+      , onReady);
+
+
+    $(document).on("pageinit"
+      , "#page2"
+      , function() {
+        $("#submit").click(function(){
+          var title  = $("#title").val();
+          var author = $("#name").val();
+          var detail = $("#content").val();
+          var avatar = $("#avatar").val();
+          
+
+          $.get("http://127.0.0.1:5000/add_msg"
+           + "?title=" + title
+           + "&author=" + author
+           + "&detail=" + detail
+           + "&avatar=" + avatar,
+          function (data, status) {
+            alert("数据: " + data + "\n状态: " + status);
+          });
+
+        });
+      });
+
   </script>
 
 
@@ -122,26 +149,15 @@
     </div>
 
     <div data-role="content" class="ui-content">
-      <ul data-role="listview" id="mainlist">
-        <li>
-             <img src="../img/blackberry_10.png">
-                     <h2>BlackBerry 10</h2>
-                      <p>BlackBerry launched the Z10 and Q10 with the new BB10 OS</p>
-                       <p class="ui-li-aside">BlackBerry</p>
-                   </li>
-                 <li>
-                     <img src="../img/lumia_800.png" class="ui-li-thumb">
-                    <h2>WP 7.8</h2>
-                       <p>Nokia rolls out WP 7.8 to Lumia 800</p>
-                       <p class="ui-li-aside">Windows Phone</p>
-                  </li>
-                <li>
-                    <img src="../img/galaxy_express.png" class="ui-li-thumb">
-                     <h2>Galaxy</h2>
-                       <p>New Samsung Galaxy Express</p>
-                      <p class="ui-li-aside">Samsung</p>
-                 </li>
-              </ul>
+        <label for="text">昵称</label>
+        <input type="text" name="name" id="name" value=""/>
+        <label for="text">标题</label>
+        <input type="text" name="title" id="title" value=""/>
+        <label for="text">留言内容</label>
+        <input type="text" name="content" id="content" value=""/>
+        <label for="text">头像</label>
+        <input type="text" name="avatar" id="avatar" value=""/>
+        <a href="#" data-role="button" id="submit">提交</a>
     </div>
 
     <div data-role="footer" data-position="fixed" data-tap-toggle="false">
@@ -154,6 +170,27 @@
       </nav>
     </div>
   </div>
+
+
+  <div data-role="page" id="page3">
+      <div data-role="header">
+        留言板样例
+      </div>
+  
+      <div data-role="content" class="ui-content">
+        工具页面
+      </div>
+  
+      <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+        <nav data-role="navbar">
+          <ul>
+            <li><a href="#page1" >列表</a></li>
+            <li><a href="#page2" >留言</a></li>
+            <li><a href="#page3" class="ui-btn-active ui-state-persist">工具</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
 
 </body>
 
