@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        
+    </head>
+    <body>
+        <canvas id="myCanvas" width="400px" height="200px" style="border:1px solid #d3d3d3;">
+        </canvas>
+
+        
+        <script>
+                var canvas = document.getElementById("myCanvas");
+                var ctx = canvas.getContext("2d");
+                ctx.fillStyle="#ff0000";
+                ctx.fillRect(90,30, 30,30);
+
+                //4-6
+                ctx.font="30px Arial";
+                ctx.fillText("Hello World", 10, 50);
+                
+        </script>
+
+    </body>
+</html>

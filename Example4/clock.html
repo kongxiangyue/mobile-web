@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+
+</head>
+
+<body>
+
+    <p id="time_text">这是时间</p>
+    <canvas id="myCanvas" width="300px" height="300px" style="border:1px solid #d3d3d3;">
+    </canvas>
+
+
+    <script>
+        function showBack() {
+            var canvas = document.getElementById("myCanvas");
+            var ctx = canvas.getContext("2d");
+            ctx.beginPath();
+            ctx.arc(150, 150, 110, 0, 2 * Math.PI);
+            ctx.stroke();
+
+        }
+
+        function showNumber() {
+            var canvas = document.getElementById("myCanvas");
+            var ctx = canvas.getContext("2d");
+
+            for (var i = 1; i < 13; i++) {
+                var angle = i * Math.PI / 6
+                var x = 100 * Math.sin(angle) + 145//微调
+                var y = 158 - 100 * Math.cos(angle)
+                ctx.fillText(i, x, y)
+            }
+            ctx.closePath()
+            ctx.stroke()
+
+        }
+
+
+        function showSec() {
+            var canvas = document.getElementById("myCanvas");
+            var ctx = canvas.getContext("2d");
+            var now = new Date();
+
+            var sec = now.getSeconds()
+            //角度弧度
+            var angle = sec * Math.PI / 30
+            var x = 100 * Math.sin(angle) + 150
+            var y = 150 - 100 * Math.cos(angle)
+            ctx.beginPath()
+            ctx.lineWidth = 3;
+            ctx.strokeStyle = "red";
+            ctx.moveTo(150, 150)
+            ctx.lineTo(x, y)
+            ctx.closePath()
+            ctx.stroke()
+            //ctx.save();
+        }
+
+
+        function showMin() {
+            var canvas = document.getElementById("myCanvas");
+            var ctx = canvas.getContext("2d");
+            var now = new Date();
+            var sec = now.getSeconds()
+            var min = now.getMinutes()
+
+            var angle = (min + sec / 60) * Math.PI / 30
+            var x = 80 * Math.sin(angle) + 150
+            var y = 150 - 80 * Math.cos(angle)
+            ctx.beginPath()
+            ctx.sineWidth = 5;
+            ctx.strokeStyle = 'black';
+            ctx.moveTo(150, 150)
+            ctx.lineTo(x, y)
+            ctx.closePath()
+            ctx.stroke()
+
+        }
+
+        function showHour() {
+            var canvas = document.getElementById("myCanvas");
+            var ctx = canvas.getContext("2d");
+            var now = new Date()
+            var hou = now.getHours()
+            hou = hou % 12 //24小时制，取余数
+            var min = now.getMinutes()
+            var sec = now.getSeconds()
+            var angle = (hou + min / 60 + sec / 3600) * Math.PI / 6
+            var x = 50 * Math.sin(angle) + 150
+            var y = 150 - 50 * Math.cos(angle)
+            ctx.beginPath()
+            ctx.lineWidth=8;
+            ctx.moveTo(150, 150)
+            ctx.lineTo(x, y)
+            ctx.closePath()
+            ctx.stroke()
+
+        }
+
+
+
+        function show() {
+
+
+            var now = new Date();
+            var sec = now.getSeconds();
+            var min = now.getMinutes();
+            var hour = now.getHours();
+            var p = document.getElementById("time_text");
+            p.innerHTML = hour + ":" + min + ":" + sec;
+
+            var c = document.getElementById("myCanvas");
+            var cxt = c.getContext("2d");
+            c.height = c.height;
+
+
+            showBack();
+            showNumber();
+
+            showSec();
+            showMin();
+            showHour();
+        }
+
+        setInterval(show, 1000);
+
+
+
+    </script>
+
+</body>
+
+</html>
