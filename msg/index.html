@@ -46,19 +46,27 @@
               .attr("class", "avatar");
             
             var title = $("<h2></h2>")
+              //.attr("class", "ui-li-aside")
               .html(element.title);
 
-              var author = $("<p></p>")
-                .attr("class", "ui-li-aside")
+            var author = $("<p></p>")
                 .html(element.author);
             
-            var item = $("<li></li>").append(avatar)
+            var content_href = $("<a></a>")
+              .attr("class", "ui-btn ui-btn-icon-right ui-icon-carat-r")
+              .attr("href", "#page4?author="   + element.author 
+                                  +"&title="   + element.title
+                                  +"&content=" + element.detail)
+              .append(avatar)
               .append(title)
               .append(author)
+              
+
+            var item = $("<li></li>")
+              .append(content_href)
               .attr("data-type", "horizontal")
-              .attr("class", "ui-li-static ui-body-inherit ui-li-has-thumb item");
-
-
+              .attr("class", "ui-body-inherit ui-li-has-thumb item");
+              
             $("#mainlist").append(item);
               
           });
@@ -109,12 +117,14 @@
     </div>
 
     <div data-role="content" class="ui-content">
-      <ul data-role="listview" id="mainlist">
-        <li>
+      <ul data-role="listview" id="mainlist"  >
+              <li>
+              <a href="#page4">
              <img src="../img/blackberry_10.png">
                      <h2>BlackBerry 10</h2>
                       <p>BlackBerry launched the Z10 and Q10 with the new BB10 OS</p>
                        <p class="ui-li-aside">BlackBerry</p>
+                      </a>
                    </li>
                  <li>
                      <img src="../img/lumia_800.png" class="ui-li-thumb">
@@ -190,6 +200,12 @@
           </ul>
         </nav>
       </div>
+    </div>
+
+
+    <div data-role="page" id="page4">
+      <p>这是第四个页面</p>
+
     </div>
 
 </body>
